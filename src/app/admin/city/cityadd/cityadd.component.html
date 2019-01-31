@@ -1,0 +1,57 @@
+<app-topbar></app-topbar>
+
+
+<div class="container-fluid">
+    <div class="row">
+        
+        <app-leftnav></app-leftnav>
+          <div class="col-sm-12 col-xs-12 col-md-10">
+  
+            <mat-grid-list cols="2" rowHeight="12:1">
+                <mat-grid-tile><h1>City Add</h1></mat-grid-tile>
+        
+                  <mat-grid-tile> <a class="btn btn-primary float-right" href="admin/states">Back</a></mat-grid-tile>
+               </mat-grid-list>
+              
+            <div class="alert alert-danger mt-5" *ngIf="show">
+              <strong>{{message}}</strong> 
+            </div>
+  
+           <mat-card-content>
+  
+
+              <form [formGroup]="AddCityForm" (ngSubmit)="citycreate()" class="my-form">
+                <mat-form-field class="full-width">
+                  <mat-select placeholder="Select State" formControlName="state_id">
+                    <mat-option *ngFor="let state of States" [value]="state.id">
+                      {{state.state_name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                  <mat-form-field class="full-width">
+                    <mat-label>City Name:</mat-label>
+                      <input matInput type="text" id="city_name" name="city_name" formControlName="city_name" maxlength="50" >
+                      <div class="mt-15"></div>
+                      <mat-error *ngIf="AddCityForm.get('city_name').touched && AddCityForm.get('city_name').dirty && AddCityForm.get('city_name').errors">
+                          <span *ngIf="AddCityForm.get('city_name').errors.required" class="error-message">Username must be required!</span>
+                      </mat-error>
+
+                  </mat-form-field>
+
+                  <mat-card-actions>
+                      <button mat-raised-button  color="primary"  [disabled]="AddCityForm.invalid">Submit</button>
+                  </mat-card-actions>
+              </form>
+            
+           </mat-card-content>
+     
+          </div>
+  
+        </div> <!-- Close the row section of navbar -->
+      
+      </div> <!-- Close the container section from navbar -->
+  
+
+
+
+<app-footer></app-footer>

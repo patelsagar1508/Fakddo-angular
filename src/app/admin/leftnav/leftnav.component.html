@@ -1,0 +1,40 @@
+
+   <!-- <div class="navbar">
+      <div class="col-sm-12 col-xs-12 col-md-2">
+          <ul class="navbar-left">
+              <li class="list-group-item"><a routeLink="">Dashboard</a></li>
+              <li class="list-group-item"><a routeLink="">Users</a></li>
+          </ul>
+      </div>
+    </div> -->
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+              <li class="nav-item">
+                  <strong><a class="{{routename === 'dashboard' ? 'nav-link active' :'nav-link' }}" href="/admin/dashboard">Dashboard</a></strong>
+                  </li>
+                  <li class="nav-item">
+                    <strong><a class="{{routename === 'users' ? 'nav-link active' :'nav-link' }}" href="/admin/users">Users Management</a> </strong>
+                  </li>
+                  <li class="nav-item">
+                        <strong><a class="{{routename === 'states' ? 'nav-link active' :'nav-link' }}" href="/admin/states">States Management</a> </strong>
+                  </li>
+                  <li class="nav-item">
+                        <strong><a class="{{routename === 'city' ? 'nav-link active' :'nav-link' }}" href="/admin/city">City Management</a> </strong>
+                  </li>
+                  <li class="nav-item">
+                        <strong><a class="{{routename === 'category' ? 'nav-link active' :'nav-link' }}" href="/admin/category">Category Management</a> </strong>
+                </li>
+                <li class="nav-item">
+                    <strong><a class="{{routename === 'banners' ? 'nav-link active' :'nav-link' }}" href="/admin/banners">Banners Management</a> </strong>
+              </li>
+              <li class="nav-item">
+                    <strong><a class="{{routename === 'brandmodels' ? 'nav-link active' :'nav-link' }}" href="/admin/brandmodels">Brandmodels Management</a> </strong>
+            </li>
+            <li class="nav-item">
+                    <strong><a class="{{routename === 'brands' ? 'nav-link active' :'nav-link' }}" href="/admin/brands">Brands Management</a> </strong>
+            </li>
+          </ul>
+        </div>
+    </nav>

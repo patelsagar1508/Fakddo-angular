@@ -1,0 +1,81 @@
+<app-topbar></app-topbar>
+<div class="container-fluid">
+  <div class="row">
+      
+      <app-leftnav></app-leftnav>
+        <div class="col-sm-12 col-xs-12 col-md-10">
+            <mat-grid-list cols="2" rowHeight="12:1">
+                <mat-grid-tile><h1>Users Edit</h1></mat-grid-tile>
+        
+                  <mat-grid-tile> <a class="btn btn-primary float-right" href="admin/users">Back</a></mat-grid-tile>
+               </mat-grid-list>
+          
+          <div class="alert alert-danger mt-5" *ngIf="show">
+            <strong>{{message}}</strong> 
+          </div>
+         <mat-card-content>
+
+              <form [formGroup]="EditUserForm" (ngSubmit)="updateUser()" class="my-form">
+
+                  <mat-form-field class="full-width">
+                    <mat-label>UserName:</mat-label>
+                      <input matInput type="text" id="username" name="username" formControlName="username" maxlength="50" readonly>
+                      <div class="mt-15"></div>
+                      <mat-error *ngIf="EditUserForm.get('username').touched && EditUserForm.get('username').dirty && EditUserForm.get('username').errors">
+                          <span *ngIf="EditUserForm.get('username').errors.required" class="error-message">Username must be required!</span>
+                      </mat-error>
+
+                  </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                      <mat-label>Email:</mat-label>
+                      <input type="email" matInput id="email_id" name="email_id" formControlName="email_id" maxlength="50" readonly>
+                      <div class="mat-15"></div>
+                      <mat-error *ngIf="EditUserForm.get('email_id').touched && EditUserForm.get('email_id').dirty && EditUserForm.get('email_id').errors">
+                          <span class="error-message" *ngIf="EditUserForm.get('email_id').errors.required"> Email must be required!</span>
+                          <span class="error-message" *ngIf="EditUserForm.get('email_id').errors.pattern">Email pattern wrong Please put valid Email</span>
+                      </mat-error>
+
+                  </mat-form-field>
+
+                  <mat-form-field  class="full-width">
+                      <mat-label>Phone</mat-label>
+                      <input type="text" matInput id="mobile" name="mobile" maxlength="50" formControlName="mobile">
+                      <div class="mat-15"></div>
+
+                  </mat-form-field>
+                 
+                 <mat-form-field class="full-width">
+                    <input matInput [max]="minDate" [matDatepicker]="picker" placeholder="Choose a date" id="birthdate" name="birthdate" maxlength="50" formControlName="birthdate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                    <!-- <mat-datepicker #picker></mat-datepicker> -->
+                 </mat-form-field>
+
+                  <mat-form-field class="full-width">
+                      <mat-label>Status</mat-label>
+                      
+                          <select matNativeControl required  id="status" name="status" formControlName="status" maxlength="50">
+                            <option value="active"  >Active</option>
+                            <option value="inactive">Inactive</option>
+                          </select>
+                          
+                          
+
+                  </mat-form-field>
+
+                  <mat-card-actions>
+                      <button mat-raised-button  color="primary"  >Update</button>
+                  </mat-card-actions>
+              </form>
+
+
+         </mat-card-content>
+   
+        </div>
+
+      </div> <!-- Close the row section of navbar -->
+    
+    </div> <!-- Close the container section from navbar -->
+
+<app-footer></app-footer>

@@ -1,0 +1,45 @@
+<app-topbar></app-topbar>
+
+<div class="container-fluid">
+  <div class="row">
+      
+      <app-leftnav></app-leftnav>
+    <div class="col-sm-12 col-xs-12 col-md-10">
+      <div class="mt-5"></div>
+      <mat-grid-list cols="2" rowHeight="12:1">
+        <mat-grid-tile><h1>Brandmodels Listing</h1></mat-grid-tile>
+
+          <mat-grid-tile> <a class="btn btn-primary float-right" href="admin/city/add">Add New</a></mat-grid-tile>
+       </mat-grid-list>
+          
+        <div class="mt-5"></div>
+
+
+          <div class="alert alert-success mt-5" *ngIf="show">
+            <strong></strong> 
+          </div>
+
+          <div class="table-responsive">
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Category Name</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let brand of Brands; let i = index">
+                  <td>{{brand.brand_name}}</td>
+                  <td><a href="admin/category/edit/{{brand.id}}"><mat-icon>edit</mat-icon></a> / <a href="javascript:void(0)" (click)="statesdelete(brand.id)"><mat-icon>delete</mat-icon></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        
+    </div>
+
+  </div> <!-- Close the row section of navbar -->
+
+</div> <!-- Close the container section from navbar -->
+
+<app-footer></app-footer>

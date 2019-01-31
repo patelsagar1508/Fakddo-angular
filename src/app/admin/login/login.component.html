@@ -1,0 +1,50 @@
+<section  class="form-contain mt-5" >
+    <div layout="row" layout-align="start center" flex>
+
+        <mat-toolbar>
+            <span>Login</span>
+        </mat-toolbar>
+        <mat-card class="my-card">
+
+
+      <div class="grids-level grids-box grids-b1">
+            
+            <div class="text-center">
+                    <img class="rounded mx-auto d-block" src="assets/images/img_avatar2.png" srcset="assets/images/img_avatar2.png">
+                  </div>
+          </div>
+          <div class="alert alert-danger mt-5" *ngIf="show">
+            <strong>Invalid username and password</strong> 
+          </div>
+            <mat-card-content>
+                <form [formGroup]="loginForm" (ngSubmit)="requestLogin()" class="my-form">
+                    <mat-form-field class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" id="txtUser" name="txtUser" formControlName="txtUser" maxlength="50">
+                        <div class="mt-15"></div>
+                        <mat-error *ngIf="loginForm.get('txtUser').touched && loginForm.get('txtUser').dirty 
+                        && loginForm.get('txtUser').errors">
+                            <span *ngIf="loginForm.get('txtUser').errors.required" class="error-message">Email is required.</span>    
+                            <span *ngIf="loginForm.get('txtUser').errors.pattern" class="error-message">Email must be valid.</span>    
+                        </mat-error>
+                        <div class="mt-15"></div>
+                    </mat-form-field>
+                    <div class="mt-15"></div>
+                    <mat-form-field class="full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" type="password" id="txtpsw" name="txtpsw" formControlName="txtpsw" maxlength="50">
+                        <mat-error *ngIf="loginForm.get('txtpsw').touched && loginForm.get('txtpsw').dirty 
+                        && loginForm.get('txtpsw').errors">
+                    <span *ngIf="loginForm.get('txtpsw').errors.required" class="error-message">Password is required.</span>    
+                    <span *ngIf="loginForm.get('txtpsw').errors.pattern" class="error-message">Password must be minimum 5 and maximum 9 valid.</span>    
+                </mat-error>
+                    </mat-form-field>
+                    <mat-card-actions>
+                            <button mat-raised-button  color="primary"  [disabled]="loginForm.invalid" >LOGIN</button>
+                        </mat-card-actions>
+                </form>
+            </mat-card-content>
+            
+        </mat-card>
+    </div>
+</section>

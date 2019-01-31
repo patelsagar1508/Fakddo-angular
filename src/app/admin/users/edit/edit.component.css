@@ -1,0 +1,35 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+   
+  .full-width {
+    width: 100%;
+  }
+  .form-contain{
+    width: 700px;
+    margin: 0 auto;
+    height: 100vh;
+  }
+
+  .rounded{width: 20%;}

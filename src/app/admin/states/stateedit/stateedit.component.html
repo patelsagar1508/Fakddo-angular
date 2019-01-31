@@ -1,0 +1,49 @@
+<app-topbar></app-topbar>
+
+
+<div class="container-fluid">
+  <div class="row">
+      
+      <app-leftnav></app-leftnav>
+        <div class="col-sm-12 col-xs-12 col-md-10">
+
+          <mat-grid-list cols="2" rowHeight="12:1">
+            <mat-grid-tile><h1>States Edit</h1></mat-grid-tile>
+    
+              <mat-grid-tile> <a class="btn btn-primary float-right" href="admin/states">Back</a></mat-grid-tile>
+           </mat-grid-list>
+            
+          <div class="alert alert-danger mt-5" *ngIf="show">
+            <strong>{{message}}</strong> 
+          </div>
+            
+         <mat-card-content>
+
+
+            <form [formGroup]="EditStateForm" (ngSubmit)="stateupdate()" class="my-form">
+
+                <mat-form-field class="full-width">
+                  <mat-label>State Name:</mat-label>
+                    <input matInput type="text" id="state_name" name="state_name" formControlName="state_name" maxlength="50" >
+                    <div class="mt-15"></div>
+                    <mat-error *ngIf="EditStateForm.get('state_name').touched && EditStateForm.get('state_name').dirty && EditStateForm.get('state_name').errors">
+                        <span *ngIf="EditStateForm.get('state_name').errors.required" class="error-message">Username must be required!</span>
+                    </mat-error>
+
+                </mat-form-field>
+
+                <mat-card-actions>
+                    <button mat-raised-button  color="primary"  [disabled]="EditStateForm.invalid">UPDATE</button>
+                </mat-card-actions>
+            </form>
+          
+         </mat-card-content>
+   
+        </div>
+
+      </div> <!-- Close the row section of navbar -->
+    
+    </div> <!-- Close the container section from navbar -->
+
+
+<app-footer></app-footer>
